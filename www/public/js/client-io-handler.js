@@ -1,4 +1,4 @@
-var sv = "http://srpaochat.herokuapp.com//";
+var sv = "http://srpaochat.herokuapp.com/";
 
 var socket = io(sv), //Creo el socket
     configs = { //Creo una variable para guardar configuraciones

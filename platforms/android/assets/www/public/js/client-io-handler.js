@@ -1,4 +1,4 @@
-var sv = "http://srpaochat.herokuapp.com/";
+var sv = "http://localhost:8080/";
 
 var socket = io(sv), //Creo el socket
     configs = { //Creo una variable para guardar configuraciones
@@ -120,7 +120,7 @@ $(document).ready(function() {
                     uploadAvailable(true);
                     return;
                 }else{
-                    chat.append($(drawDiv([],6)).css("background-image","url("+sv+evt.target.result+")"));
+                    chat.append($(drawDiv([],6)).css("background-image","url("+evt.target.result+")"));
                     if (s_prv_id) {
                         socket.emit('image message', {image:evt.target.result,to:s_prv_id});
                     }else{

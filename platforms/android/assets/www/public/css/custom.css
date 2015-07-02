@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+/* STRUCTURE */
+html{
+    padding-top: 50px;
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  overflow: hidden;
+  background-color: #484A4E;
+  background-image: url('/public/img/bg.png');
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.row{
+  height: 100%;
+  position: relative;
+}
+
+.no-gutter{
+    padding:0;
+}
+
+.chat{
+  height: -webkit-calc(100% - 43px);
+  /* Firefox */
+  height: -moz-calc(100% - 43px);
+  /* WebKit */
+  height: -webkit-calc(100% - 43px);
+  /* Opera */
+  height: -o-calc(100% - 43px);
+  /* Standard */
+  height: calc(100% - 43px);
+
+  overflow-y: auto;
+
+  background: #F0F7ED;
+  background-image: url('/public/img/bg.png');
+}
+
+.container.bodycontainer{
+  height: 100%;
+  -webkit-box-shadow: 2px 2px 12px 2px rgba(0,0,0,0.34);
+  -moz-box-shadow: 2px 2px 12px 2px rgba(0,0,0,0.34);
+  box-shadow: 2px 2px 12px 2px rgba(0,0,0,0.34);
+}
+
+.in > .navbar-right, .collapsing > .navbar-right{
+  overflow: hidden;
+  margin: 15px 15px 15px 15px;
+}
+
+/* CHATS */
+.media{
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 15px;
+}
+
+/* COLORS MEDIS */
+.own{
+  background: #D5F7B3;
+  -webkit-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  -moz-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+}
+
+.server{
+  background: #15D69B;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: 0px 0px 1.5px rgba(79, 79, 79, 1);
+}
+
+.error{
+  background: #E42424;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: 0px 0px 1.5px rgba(79, 79, 79, 1);
+}
+
+.notif{
+  background: #2780e3;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: 0px 0px 1.5px rgba(79, 79, 79, 1);
+}
+
+.media-notif{
+  background: #9954bb;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: 0px 0px 1.5px rgba(79, 79, 79, 1);
+}
+
+.other{
+  background: rgba(255,250,250,1);
+  -webkit-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  -moz-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+}
+
+.owner{
+  background: rgba(201,146,49,1);
+  color: #fff;
+  -webkit-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  -moz-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  text-shadow: 0px 0px 2px rgba(25, 25, 25, 1);
+}
+
+.prvt{
+  background: rgba(85,172,238,1);
+  color: #fff;
+  -webkit-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  -moz-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  text-shadow: 0px 0px 2px rgba(25, 25, 25, 1);
+}
+
+.other .name{
+  text-shadow: 0px 0px 1px rgba(25, 25, 25, 0.2);
+}
+
+/* IMAGE */
+.image{
+  width:25%;
+  height:25%;
+  border: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  -moz-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
+  text-shadow: 0px 0px 2px rgba(25, 25, 25, 1);
+}
+
+.image:last-child {
+  margin-bottom: 15px;
+}
+
+/* GLYPHICON */
+.gly-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.glyphicon {
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  line-height: 14px;
+  vertical-align: text-top;
+}

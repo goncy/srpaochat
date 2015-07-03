@@ -8,7 +8,6 @@ var socket = io(sv), //Creo el socket
         show_cnx_notif: true,
         name_color: "#333",
         bg_img: null,
-        owner: false
     },
     msg = $('#msg_input'), //Defino la variable del msg input
     chat = $('#chat'),
@@ -72,7 +71,6 @@ function setData() { //Guardo los datos del modal de configuracion
 }
 
 function setPrv(id) {
-    if (configs.owner) prv_kick.show();
     prv_dismiss.show();
     prv_id.val(id);
     goBot();
@@ -83,11 +81,6 @@ function unsetPrv() {
     prv_dismiss.hide();
     prv_id.val('');
     goBot();
-}
-
-function kickPrv() {
-    socket.emit('kickPrv', prv_id.val());
-    unsetPrv();
 }
 
 function replaceURLWithHTMLLinks(text) {
@@ -138,7 +131,6 @@ $(document).ready(function() {
 });
 
 socket.on('bienvenido', function(d) {
-    configs.owner = d.owner;
     configs.color = d.color;
     configs.name = d.name;
 
@@ -153,9 +145,7 @@ socket.on('bienvenido', function(d) {
 
 //Seteo los listeners del socket
 socket.on('chat message', function(d) {
-    var msj_class = d.owner ? "owner" : "other";
-    d.color = d.owner ? "#fff" : d.color;
-    chat.append($(drawDiv([msj_class],2)).html(drawDiv([d.id,d.usr,d.color,d.msg],7)));
+    chat.append($(drawDiv(["other"],2)).html(drawDiv([d.id,d.usr,d.color,d.msg],7)));
     goBot();
 });
 
@@ -190,10 +180,6 @@ socket.on('disconnect', function () {
     if(configs.show_sv_notif) notify("Fuiste desconectado de la sala");
 });
 
-socket.on('changeRoom', function(d) {
-    cambiarBg(d);
-});
-
 socket.on('alerta', function(d) {
     switch (d.type){
         case "cnx":
@@ -215,6 +201,11 @@ socket.on('alerta', function(d) {
             break;
     }
     goBot();
+});
+
+//Conseguir imagenes
+socket.on('get images', function(images){
+    console.log("Imagenes: "+images);
 });
 
 function previewImage(img,username){

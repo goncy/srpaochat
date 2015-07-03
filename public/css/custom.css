@@ -63,6 +63,10 @@ a:link {
   margin-bottom: 15px;
 }
 
+.media:last-child{
+  margin-bottom: 15px;
+}
+
 /* COLORS MEDIS */
 .own{
   background: #D5F7B3;
@@ -133,7 +137,6 @@ a:link {
   width:25%;
   height:25%;
   border: 0px;
-  margin-bottom: 0px;
   margin-top: 0px;
   background-position: center;
   -webkit-background-size: cover;
@@ -144,10 +147,6 @@ a:link {
   -moz-box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
   box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.50);
   text-shadow: 0px 0px 2px rgba(25, 25, 25, 1);
-}
-
-.image:last-child {
-  margin-bottom: 15px;
 }
 
 /* GLYPHICON */

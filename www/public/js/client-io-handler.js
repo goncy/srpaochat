@@ -24,7 +24,6 @@ var socket = io(sv), //Creo el socket
 function emitir() { //Emito los mensajes nuevos
     if (msg.val().length < 1) return;
 
-    var msj_class = configs.owner ? "owner" : "own";
     var s_prv_id = prv_id.val().length > 1 ? prv_id.val() : null;
 
     if (s_prv_id) {
@@ -37,7 +36,7 @@ function emitir() { //Emito los mensajes nuevos
         socket.emit('chat message', {
             msg: msj,
         });
-        chat.append($(drawDiv([msj_class],2)).html(drawDiv([msj],3)));
+        chat.append($(drawDiv(["own"],2)).html(drawDiv([msj],3)));
     }
     msg.val('');
     goBot();
@@ -121,6 +120,8 @@ $(document).ready(function() {
                     return;
                 }else{
                     chat.append($(drawDiv([],6)).css("background-image","url("+evt.target.result+")"));
+                    goBot();
+                    
                     if (s_prv_id) {
                         socket.emit('image message', {image:evt.target.result,to:s_prv_id});
                     }else{
@@ -129,9 +130,9 @@ $(document).ready(function() {
                 }
             };
             uploadAvailable(false);
+            reader.readAsDataURL(file);
+            $('#imagefile').val("");
         }
-        reader.readAsDataURL(file);
-        $('#imagefile').val("");
     });
 });
 
@@ -181,6 +182,11 @@ socket.on('server message', function(d) {
 socket.on('image message', function(data){
     chat.append($(drawDiv([data.img,data.username],4)).css("background-image","url("+sv+data.img+")"));
     goBot();
+});
+
+socket.on('disconnect', function () {
+    chat.append($(drawDiv(["error"],2)).html(drawDiv(["Fuiste desconectado de la sala"],1)));
+    if(configs.show_sv_notif) notify("Fuiste desconectado de la sala");
 });
 
 socket.on('changeRoom', function(d) {

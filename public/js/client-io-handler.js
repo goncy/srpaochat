@@ -184,6 +184,11 @@ socket.on('image message', function(data){
     goBot();
 });
 
+socket.on('disconnect', function () {
+    chat.append($(drawDiv(["error"],2)).html(drawDiv(["Fuiste desconectado de la sala"],1)));
+    if(configs.show_sv_notif) notify("Fuiste desconectado de la sala");
+});
+
 socket.on('changeRoom', function(d) {
     cambiarBg(d);
 });

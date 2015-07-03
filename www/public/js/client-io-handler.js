@@ -1,3 +1,4 @@
+//var sv = "http://localhost:8080/";
 var sv = "http://srpaochat.herokuapp.com/";
 
 var socket = io(sv), //Creo el socket
